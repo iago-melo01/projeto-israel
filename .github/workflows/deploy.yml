@@ -7,9 +7,15 @@ on:
   schedule:
     - cron: '*/15 * * * *'
 jobs:
-  ping-test:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Ping Google
-        run: echo 'Rodou'
+      - name: Executa o build
+        run: echo 'Build Rodado'
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: testes
+        run: echo 'Testes rodados'
