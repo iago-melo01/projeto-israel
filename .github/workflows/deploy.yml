@@ -1,0 +1,15 @@
+name: ping google test
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: # Permite que você execute o script manualmente
+  schedule:
+    - cron: '*/15 * * * *'
+jobs:
+  ping-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Ping Google
+        run: ping -c 20 8.8.8.8
